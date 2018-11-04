@@ -26,14 +26,6 @@ function TimeGridEvent(props) {
   let userProps = getters.eventProp(event, start, end, selected)
 
   let { height, top, width, xOffset } = style
-  const inner = [
-    <div key="1" className="rbc-event-label">
-      {label}
-    </div>,
-    <div key="2" className="rbc-event-content">
-      {Event ? <Event event={event} title={title} /> : title}
-    </div>,
-  ]
 
   return (
     <EventWrapper type="time" {...props}>
@@ -58,7 +50,16 @@ function TimeGridEvent(props) {
           'rbc-event-continues-later': continuesLater,
         })}
       >
-        {inner}
+        {Event ? (
+          <div className="rbc-event-content">
+            <Event label={label} event={event} title={title} />
+          </div>
+        ) : (
+          <React.Fragment>
+            <div className="rbc-event-label">{label}</div>
+            <div className="rbc-event-content">{title}</div>
+          </React.Fragment>
+        )}
       </div>
     </EventWrapper>
   )
