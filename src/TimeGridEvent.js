@@ -52,7 +52,12 @@ function TimeGridEvent(props) {
       >
         {Event ? (
           <div className="rbc-event-content">
-            <Event label={label} event={event} title={title} />
+            <Event
+              label={label}
+              event={event}
+              title={title}
+              selected={selected}
+            />
           </div>
         ) : (
           <React.Fragment>
