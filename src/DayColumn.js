@@ -347,6 +347,12 @@ class DayColumn extends React.Component {
         this.setState({ selecting: false })
       }
     })
+
+    selector.on('reset', () => {
+      if (this.state.selecting) {
+        this.setState({ selecting: false })
+      }
+    })
   }
 
   _teardownSelectable = () => {
